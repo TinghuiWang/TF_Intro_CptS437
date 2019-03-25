@@ -1,8 +1,16 @@
 # For auto-completion to work
-import os
-from datetime import datetime
 from sklearn.metrics import classification_report
+import tensorflow as tf
 import tensorflow.python.keras as keras
+
+def inputFlatten(x):
+    return tf.reshape(x, (28*28))
+
+def hiddenLayer(x, W, b):
+    return tf.nn.relu(tf.matmul(W, x) + b, name="hidden")
+
+def outputLayer(x, W, b):
+    return tf.matmul(W, x) + b
 
 if __name__ == "__main__":
     (x_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data()
@@ -20,23 +28,11 @@ if __name__ == "__main__":
         loss='sparse_categorical_crossentropy',
         metrics=['accuracy']
     )
-
-    # Profile the training procedure, create tensorboard callback
-    stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
-    logdir = os.path.join('logs', 'mnist_keras_mlp', stamp)
-    tb_callback = keras.callbacks.TensorBoard(
-        log_dir='logdir',
-        histogram_freq=1,
-        write_graph=True,
-        write_images=True,
-        update_freq = 10000,
-        profile_batch= 10000
-    )
-
     model.fit(
-        x=x_train, y=y_train, epochs=5, callbacks=[tb_callback]
+        x=x_train, y=y_train, epochs=5
     )
     y_pred = model.predict_classes(x=x_test)
-    print(classification_report(y_test, y_pred, target_names=[
-        '%d' % i for i in range(10)
-    ]))
+    print(classification_report(
+        y_test, y_pred, target_names=['%d' % i for i in range(10)],
+        digits=5
+    ))
