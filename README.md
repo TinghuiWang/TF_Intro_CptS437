@@ -4,8 +4,8 @@ This repository is a collection of examples and documents for WSU CptS 437 Intro
 
 ## Prepare Python Environment
 
-To prepare your Python environment for the tutorial, please refer to the [Prepare Python Environment](PreparePythonEnvironment.md) for step-by-step instructions.
-[Environment Test Notebook](environment_test.ipynb) provides a list of simple examples to test your Python environment setup.
+To prepare your Python environment for the tutorial, please refer to the [Prepare Python Environment](environment/PreparePythonEnvironment.md) for step-by-step instructions.
+[Environment Test Notebook](environment/environment_test.ipynb) provides a list of simple examples to test your Python environment setup.
 Note that the `mayavi` library setup in the above documents are optional.
 
 For Python IDE, you can use [Visual Studio Code](https://code.visualstudio.com/) or [PyCharm 2019.1 EAP](https://www.jetbrains.com/pycharm/nextversion/).
@@ -21,8 +21,12 @@ It is recommended to install 2019.1 EAP with bug fixes for Conda virtual environ
 
 ## Examples/Tutorials
 
-#. Simple Addition: ex1_addition.py
-#. MNIST Multi-Layer Perceptron with Keras: ex2_mnist_keras_mlp_tb.py
+1. Simple Addition: ex1_SimpleAddition
+2. Linear Regression: ex2_LinearRegression
+3. MNIST Multi-Layer Perceptron with Keras: ex3_MLP_MNIST_Keras
+4. MNIST Conv Layer with Keras: ex4_ConvNN_MNIST_Keras
+5. MNIST Custom Layer with Keras: ex5_Custom_MNIST_Keras
 
 ## Slides
+
 
